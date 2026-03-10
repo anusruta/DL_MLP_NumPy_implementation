@@ -33,4 +33,15 @@ For visualization, Principal Component Analysis (PCA) was applied to reduce the 
 
 The performance of the custom neural network was also compared with Scikit-learn’s MLPClassifier to evaluate how closely the from-scratch implementation performs relative to a well-optimized library implementation.
 
+
+
+Part 4: Experimentation and Hyperparameter testing
+n this experiment, different hyperparameters of a neural network were tested to analyze how they influence model performance. The experiments focused on three main factors: learning rate, activation function, and network architecture. Learning rates of 0.001, 0.01, and 0.1 were evaluated to observe how quickly the model learns from the data. Three activation functions—sigmoid, ReLU, and tanh—were also tested to understand their effect on the model’s ability to capture nonlinear patterns. Additionally, multiple network architectures such as 4-4-3, 4-8-6-3, and 4-16-8-3 were implemented to compare the impact of different numbers of hidden layers and neurons.
+
+The results showed that models trained with a learning rate of 0.01 generally performed better than those using 0.001 or 0.1. Very small learning rates led to slow learning and lower accuracy, while larger learning rates sometimes caused unstable learning and reduced performance. Among the activation functions, tanh and sigmoid performed better in this dataset compared to ReLU in most cases.
+
+The best-performing configuration was a network with architecture 4-8-6-3, using the tanh activation function and a learning rate of 0.01, achieving 100% test accuracy. Other configurations with the same learning rate and slightly different architectures also achieved high accuracy, while models with a learning rate of 0.001 produced significantly lower accuracy around 30–35%.
+
+Finally, the parameters of the best model were saved in a file named best_mlp_parameters.pkl, allowing the trained network weights and settings to be reused later without retraining the model. This experiment demonstrates that proper tuning of learning rate, activation functions, and network structure can significantly improve neural network performance.
+
 Finally, after training and evaluation, the trained MLP model parameters and the PCA transformation model were saved. Saving these parameters allows the model to be reused later for predictions without retraining, and ensures that the same PCA transformation can be applied consistently when visualizing or processing new data.
